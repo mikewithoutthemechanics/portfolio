@@ -1,0 +1,14 @@
+{
+  "name": "michael-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Creative portfolio of Michael - AI & Automation Developer",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}

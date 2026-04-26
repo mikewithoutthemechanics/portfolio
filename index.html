@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Michael | 3D Gallery Experience</title>
+  <meta name="description" content="An immersive 3D gallery walkthrough — explore rooms of digital art, famous sculptures, and an interactive toolbox.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Three.js Canvas -->
+  <div id="world"></div>
+
+  <!-- UI Overlay -->
+  <div id="ui">
+    <!-- Instructions -->
+    <div class="instructions" id="instructions">
+      <div class="instructions-content">
+        <h2>Welcome to the Gallery</h2>
+        <p><strong>WASD</strong> or <strong>Arrow Keys</strong> to walk</p>
+        <p><strong>Drag</strong> to look around</p>
+        <p><strong>E</strong> to interact with artworks</p>
+        <p><strong>Click anywhere</strong> to begin</p>
+      </div>
+    </div>
+
+    <!-- HUD -->
+    <div class="hud" id="hud">
+      <div class="hud-left">
+        <span class="location" id="location">Gallery Entrance</span>
+        <span class="room-indicator" id="room-indicator">Room 00</span>
+      </div>
+      <div class="hud-right">
+        <button class="hud-btn" id="btn-minimap" title="Toggle Minimap">Map</button>
+        <button class="hud-btn" id="btn-screenshot" title="Screenshot">📷</button>
+      </div>
+    </div>
+
+    <!-- Interaction prompt -->
+    <div class="interact-prompt" id="interact-prompt">
+      <span>Press <kbd>E</kbd> to view</span>
+    </div>
+
+    <!-- Info Panel -->
+    <div class="info-panel" id="info-panel">
+      <button class="close-btn" id="close-panel">&times;</button>
+      <div class="info-content">
+        <span class="info-year" id="info-year">2024</span>
+        <h2 class="info-title" id="info-title">Title</h2>
+        <p class="info-desc" id="info-desc">Description</p>
+        <p class="info-meta" id="info-meta">Category • Technology</p>
+        <a href="#" class="info-link" id="info-link" target="_blank">View Project →</a>
+      </div>
+    </div>
+
+    <!-- Minimap -->
+    <div class="minimap" id="minimap">
+      <canvas id="minimap-canvas"></canvas>
+      <div class="minimap-label">Gallery Map</div>
+    </div>
+
+    <!-- Mobile Touch Controls (hidden on desktop) -->
+    <div id="joystick">
+      <div class="joystick-base">
+        <div class="joystick-handle"></div>
+      </div>
+    </div>
+
+    <div id="look-area">
+      <div class="look-hint">drag to look</div>
+    </div>
+
+    <button id="action-btn">E</button>
+
+    <!-- Gyro enable button (iOS) -->
+    <button id="gyro-btn" title="Enable Gyro">🧭</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/PointerLockControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
